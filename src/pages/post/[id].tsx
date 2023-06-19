@@ -6,10 +6,9 @@ import { PostView } from "~/components/postview";
 import { generateSSGHelper } from "~/server/helpers/ssgHelper";
 
 const SinglePostPage: NextPage<{ id: string }> = ({ id }) => {
-  const { data, isLoading } = api.posts.getById.useQuery({
+  const { data } = api.posts.getById.useQuery({
     id,
   });
-  if (isLoading) return <div>Loading</div>;
 
   if (!data) return <div>404</div>;
 
